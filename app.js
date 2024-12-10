@@ -1,6 +1,6 @@
 //absolute path -- > require('./http');
 const http = require("http");
-
+const fs = require("fs");
 
 
 // function rqListner(req,res){
@@ -31,12 +31,13 @@ const server = http.createServer((req,res)=>{
         res.write('<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Submit</button></form></body>');
         return res.end();
     }
+    if(url === "/message" && req.method === "POST"){
+        fs.writeFileSync('message.txt','DUMMY');
+        res.statusCode = 302;
+        res.setHeader('Location','/');
+        res.end();
+    }
 
-    res.setHeader('Content-Type','text/html');
-    res.write('<html')
-    res.write('<head><title>First Page</title></head>');
-    res.write('<body><h1>Hello from my node.js server!</h1></body>');
-    res.end();
 
 
 
