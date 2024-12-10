@@ -22,7 +22,9 @@ const http = require("http");
 //Important Methods-->server.listen(port,callback);
 
 const server = http.createServer((req,res)=>{
-    console.log(req);
+    console.log(req.url,req.method,req.headers);
+
+    process.exit();//hard exit,give contriol back to the terminal
 });
 
 server.listen(3000);
