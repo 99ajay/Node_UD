@@ -26,4 +26,5 @@ const server = http.createServer((req,res)=>{
 });
 
 server.listen(3000);
+//type -- localhost//3000 -- On browser-- we get output on console-- print "request" Object
 
